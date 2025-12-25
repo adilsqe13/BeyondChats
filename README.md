@@ -76,7 +76,7 @@ php artisan serve
 ```
 
 ### Fetch Laravel Api
-- Locally     : http://localhost:5173](http://127.0.0.1:8000/api/articles/
+- Locally     : http://127.0.0.1:8000/api/articles/
 - Hosted Url  :
 
 ### Phase-1 Hosted At
