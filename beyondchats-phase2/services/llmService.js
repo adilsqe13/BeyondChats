@@ -138,7 +138,13 @@ class LLMService {
    * @returns {string} Enhanced content
    */
   createFallbackContent(originalArticle, referenceArticles) {
-    let content = `This content was generated automatically. The content upgrade could not be completed because the available Google Gemini API credits have been exhausted. To continue upgrading content, please upgrade your Gemini API plan.`;
+    let content = `This article currently displays system-generated default content because the configured AI service credits (Google Gemini API) have been exhausted.\n`
+
+    content += `AI-powered content enhancement is temporarily unavailable due to the expiration of the allocated API usage limit. To enable advanced AI-generated insights, formatting improvements, and content enrichment, please upgrade or renew the AI service plan.\n`
+    
+    content += `Once the API credits are restored, this article will be automatically updated with enhanced content generated using AI services.\n`
+    
+    content += `Thank you for your understanding.\n`;
     
     return content;
   }

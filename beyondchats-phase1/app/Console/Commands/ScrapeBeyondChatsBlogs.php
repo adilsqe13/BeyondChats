@@ -57,8 +57,8 @@ class ScrapeBeyondChatsBlogs extends Command
         /* -------------------------------------------------
            STEP 4: Clear old database records
         --------------------------------------------------*/
-        Article::truncate();
-        $this->info('Old articles cleared from database');
+        // Article::truncate();
+        // $this->info('Old articles cleared from database');
 
         /* -------------------------------------------------
            STEP 5: Scrape article detail pages + store

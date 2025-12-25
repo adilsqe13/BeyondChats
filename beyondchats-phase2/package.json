@@ -4,16 +4,22 @@
     "description": "Article optimization using Google Search and LLM",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js",
-      "test": "node index.js"
+        "start": "node index.js",
+        "test": "node index.js"
     },
-    "keywords": ["article", "seo", "optimization"],
+    "keywords": [
+        "article",
+        "seo",
+        "optimization"
+    ],
     "author": "",
     "license": "ISC",
     "dependencies": {
-      "axios": "^1.6.2",
-      "cheerio": "^1.0.0-rc.12",
-      "dotenv": "^16.3.1",
-      "puppeteer": "^21.6.1"
+        "axios": "^1.6.2",
+        "cheerio": "^1.0.0-rc.12",
+        "dotenv": "^16.3.1",
+        "express": "^5.2.1",
+        "puppeteer": "^21.6.1",
+        "serverless-http": "^4.0.0"
     }
-  }
+}

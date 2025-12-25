@@ -7,7 +7,7 @@ class GoogleService {
 
   async searchWithAxios(query, limit = 2) {
     try {
-      console.log(`🔍 Searching with Axios method...`);
+      console.log(`🔍 Searching with an axios method...`);
       
       const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&num=10`;
       
