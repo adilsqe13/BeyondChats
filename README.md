@@ -5,6 +5,86 @@ The project demonstrates an end-to-end flow where blog articles are **scraped**,
 
 ---
 
+## 🔄 Overall System Flow (Phase 1  Phase 2  Phase 3)
+```
+User / Reviewer
+│
+▼
+Phase 1 – Laravel Backend
+─────────────────────────
+Start Laravel Project
+│
+▼
+Run Scraper Command
+php artisan scrape:beyondchats
+│
+▼
+Fetch BeyondChats Blog Homepage
+│
+▼
+Detect Last Blog Page
+│
+▼
+Open Last Blog Page
+│
+▼
+Extract Blog Articles
+│
+▼
+Select Oldest 5 Articles
+│
+▼
+Store Articles in MySQL
+│
+▼
+Expose Articles via APIs
+GET /api/articles
+│
+▼
+─────────────────────────
+Phase 2 – Node.js Automation
+─────────────────────────
+Fetch Articles from Laravel API
+│
+▼
+Search Google using Article Title
+│
+▼
+Collect Reference Article URLs
+│
+▼
+Scrape Reference Content
+│
+▼
+Attempt AI-based Content Enhancement
+│
+▼
+Fallback if AI Fails
+│
+▼
+Update Article via Laravel API
+PUT /api/articles/{id}
+│
+▼
+─────────────────────────
+Phase 3 – React Frontend
+─────────────────────────
+Start React Application
+│
+▼
+Fetch Articles from Laravel API
+│
+▼
+Render Article List UI
+│
+▼
+Display Original / Updated Content
+│
+▼
+End User View
+```
+
+
 # Phase-1: Laravel Backend (Hosted at Railway)
 
 ### What this phase does
