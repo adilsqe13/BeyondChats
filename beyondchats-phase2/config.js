@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   // Laravel API Configuration
   laravelApi: {
-    baseUrl: process.env.LARAVEL_API_BASE_URL || 'http://127.0.0.1:8000/api',
+    baseUrl: process.env.LARAVEL_API_BASE_URL || 'https://beyondchats.up.railway.app/api',
     endpoints: {
       articles: '/articles',
       articleById: (id) => `/articles/${id}`,
