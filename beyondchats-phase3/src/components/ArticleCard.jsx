@@ -10,7 +10,7 @@ export default function ArticleCard({ article }) {
         </p>
   
         <p className="content">
-          {article.content.substring(0, 300)}...
+          {article.content}
         </p>
       </div>
     );
