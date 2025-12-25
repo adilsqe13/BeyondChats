@@ -93,8 +93,7 @@ class LLMService {
       }
 
       // Add references section
-      const referencesSection = this.buildReferencesSection(referenceArticles, usingAI);
-      const fullContent = `${generatedContent}\n\n${referencesSection}`;
+      const fullContent = `${generatedContent}`;
 
       console.log('Article optimization complete');
       console.log(`Method: ${usingAI ? 'AI-Generated' : 'Manual Enhancement'}`);
@@ -121,12 +120,11 @@ class LLMService {
       
       // Last resort fallback - return original with references
       console.log('Using original content with references...');
-      const referencesSection = this.buildReferencesSection(referenceArticles, false);
       const fallbackContent = this.createBasicFallbackContent(originalArticle);
       
       return {
         title: originalArticle.title,
-        content: `${fallbackContent}\n\n${referencesSection}`,
+        content: `${fallbackContent}`,
         author: 'Original Content',
         url: originalArticle.url
       };
@@ -140,86 +138,7 @@ class LLMService {
    * @returns {string} Enhanced content
    */
   createFallbackContent(originalArticle, referenceArticles) {
-    console.log('Creating enhanced content from references...');
-    
-    let content = `<h2>Introduction</h2>\n`;
-    content += `<p>This article explores <strong>${originalArticle.title}</strong> `;
-    content += `based on insights from industry-leading sources and best practices.</p>\n\n`;
-    
-    // Extract key points from reference articles
-    content += `<h2>Key Insights</h2>\n`;
-    content += `<p>Based on analysis of top-performing articles in this domain, we've identified `;
-    content += `several important aspects:</p>\n\n`;
-    
-    content += `<ul>\n`;
-    referenceArticles.forEach((article, index) => {
-      const snippet = article.snippet || article.content.substring(0, 200);
-      content += `  <li><strong>Insight ${index + 1}:</strong> ${snippet.replace(/<[^>]*>/g, '').substring(0, 150)}...</li>\n`;
-    });
-    content += `</ul>\n\n`;
-    
-    // Add comprehensive sections
-    content += `<h2>Understanding the Fundamentals</h2>\n`;
-    content += `<p>To fully grasp the concepts discussed in this article, it's essential to understand `;
-    content += `the foundational elements. Industry experts emphasize the importance of a structured `;
-    content += `approach when implementing these strategies.</p>\n\n`;
-    
-    content += `<h3>Core Principles</h3>\n`;
-    content += `<p>The following principles form the backbone of effective implementation:</p>\n`;
-    content += `<ol>\n`;
-    content += `  <li><strong>Strategic Planning:</strong> Develop a clear roadmap for implementation</li>\n`;
-    content += `  <li><strong>User-Centric Approach:</strong> Focus on delivering value to end users</li>\n`;
-    content += `  <li><strong>Continuous Improvement:</strong> Regular optimization and refinement</li>\n`;
-    content += `  <li><strong>Data-Driven Decisions:</strong> Use analytics to guide your strategy</li>\n`;
-    content += `</ol>\n\n`;
-    
-    content += `<h2>Best Practices</h2>\n`;
-    content += `<p>Leading organizations in this field follow proven methodologies that have demonstrated `;
-    content += `consistent results. Here are the most effective practices:</p>\n\n`;
-    
-    content += `<h3>Implementation Strategy</h3>\n`;
-    content += `<p>Success requires careful planning and execution. Consider these key factors:</p>\n`;
-    content += `<ul>\n`;
-    content += `  <li>Define clear objectives and success metrics</li>\n`;
-    content += `  <li>Allocate appropriate resources and budget</li>\n`;
-    content += `  <li>Establish a timeline with realistic milestones</li>\n`;
-    content += `  <li>Build a capable team with relevant expertise</li>\n`;
-    content += `  <li>Monitor progress and adjust as needed</li>\n`;
-    content += `</ul>\n\n`;
-    
-    content += `<h2>Common Challenges and Solutions</h2>\n`;
-    content += `<p>Organizations often encounter obstacles during implementation. Understanding these `;
-    content += `challenges and their solutions can help ensure success:</p>\n\n`;
-    
-    content += `<h3>Overcoming Obstacles</h3>\n`;
-    content += `<p><strong>Challenge 1: Resource Constraints</strong><br>\n`;
-    content += `Solution: Start with a pilot program and scale gradually based on results.</p>\n\n`;
-    
-    content += `<p><strong>Challenge 2: User Adoption</strong><br>\n`;
-    content += `Solution: Provide comprehensive training and ongoing support to all users.</p>\n\n`;
-    
-    content += `<p><strong>Challenge 3: Integration Issues</strong><br>\n`;
-    content += `Solution: Choose solutions with robust APIs and strong vendor support.</p>\n\n`;
-    
-    content += `<h2>Measuring Success</h2>\n`;
-    content += `<p>To ensure your implementation delivers value, track these key performance indicators:</p>\n`;
-    content += `<ul>\n`;
-    content += `  <li><em>Efficiency Metrics:</em> Time saved, cost reduction, productivity gains</li>\n`;
-    content += `  <li><em>Quality Metrics:</em> Error rates, customer satisfaction, output quality</li>\n`;
-    content += `  <li><em>Adoption Metrics:</em> User engagement, feature utilization, retention rates</li>\n`;
-    content += `  <li><em>Business Impact:</em> ROI, revenue growth, competitive advantage</li>\n`;
-    content += `</ul>\n\n`;
-    
-    content += `<h2>Future Outlook</h2>\n`;
-    content += `<p>The landscape continues to evolve with emerging technologies and changing market `;
-    content += `dynamics. Staying informed about trends and innovations will help you maintain a `;
-    content += `competitive edge.</p>\n\n`;
-    
-    content += `<h2>Conclusion</h2>\n`;
-    content += `<p>Successfully implementing <strong>${originalArticle.title}</strong> requires `;
-    content += `careful planning, execution, and continuous optimization. By following the strategies `;
-    content += `and best practices outlined in this article, you can achieve significant improvements `;
-    content += `in your operations and deliver better outcomes for your organization.</p>\n`;
+    let content = `This content was generated automatically. The content upgrade could not be completed because the available Google Gemini API credits have been exhausted. To continue upgrading content, please upgrade your Gemini API plan.`;
     
     return content;
   }
@@ -313,39 +232,7 @@ Write the optimized article now:`;
     return content;
   }
 
-  /**
-   * Build references section
-   * @param {Array} referenceArticles - Reference articles
-   * @param {boolean} usingAI - Whether AI was used
-   * @returns {string} Formatted references section
-   */
-  buildReferencesSection(referenceArticles, usingAI = true) {
-    let referencesHtml = '\n\n<hr>\n\n<h2>References & Sources</h2>\n';
-    
-    if (usingAI) {
-      referencesHtml += '<p>This article was optimized using AI based on insights from the following top-ranking articles:</p>\n';
-    } else {
-      referencesHtml += '<p>This article incorporates insights from the following industry-leading sources:</p>\n';
-    }
-    
-    referencesHtml += '<ol>\n';
-    
-    referenceArticles.forEach((article) => {
-      referencesHtml += `  <li>\n`;
-      referencesHtml += `    <strong>${article.title}</strong><br>\n`;
-      referencesHtml += `    <a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.url}</a>\n`;
-      if (article.snippet) {
-        referencesHtml += `    <br><em>${article.snippet.substring(0, 150)}...</em>\n`;
-      }
-      referencesHtml += `  </li>\n`;
-    });
-    
-    referencesHtml += '</ol>\n\n';
-    referencesHtml += '<p><small><em>Note: This content has been created to provide value while properly ';
-    referencesHtml += 'attributing source materials. All referenced sources are credited above.</em></small></p>';
-    
-    return referencesHtml;
-  }
+
 
   /**
    * Test LLM connection

@@ -84,13 +84,7 @@ class LaravelService {
   //  Update an article
   async updateArticle(articleId, updateData) {
     try {
-      console.log(`Updating article ${articleId}...`);
-      console.log('Update data preview:', {
-        title: updateData.title?.substring(0, 50) + '...',
-        contentLength: updateData.content?.length || 0,
-        author: updateData.author
-      });
-
+      
       const response = await this.axiosInstance.put(
         config.laravelApi.endpoints.articleById(articleId),
         updateData
